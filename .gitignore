@@ -1,0 +1,6 @@
+/build
+/.idea/caches
+/.idea/libraries
+/.gradle
+local.properties
+*.log
