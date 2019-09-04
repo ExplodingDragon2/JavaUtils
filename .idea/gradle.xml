@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/DataBean" />
+            <option value="$PROJECT_DIR$/JavaUtils" />
           </set>
         </option>
         <option name="useAutoImport" value="true" />

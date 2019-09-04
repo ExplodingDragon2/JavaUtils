@@ -1,3 +1,4 @@
 rootProject.name = 'JavaUtils'
 include 'DataBean'
+include 'JavaUtils'
 
