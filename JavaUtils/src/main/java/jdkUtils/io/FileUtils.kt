@@ -3,7 +3,6 @@ package jdkUtils.io
 import jdkUtils.ModConfig
 import jdkUtils.data.StringUtils
 import java.io.*
-import java.lang.Math.pow
 import java.nio.charset.Charset
 import java.util.*
 import kotlin.math.pow
@@ -12,22 +11,22 @@ object FileUtils {
     val hexDigits = charArrayOf('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F')
 
     @Throws(IOException::class)
-    private fun fileChooseException(file: File){
+    private fun fileChooseException(file: File) {
         if (file.isFile.not()) {
             throw FileNotFoundException("[${file.absolutePath}] exists.")
         }
-        if (file.canRead().not()){
+        if (file.canRead().not()) {
             throw IOException("[${file.absolutePath}] can't read.")
         }
     }
 
     @Throws(IOException::class)
-    private fun fileChoose(file: File):Boolean{
+    private fun fileChoose(file: File): Boolean {
         if (file.isFile.not()) {
-            ModConfig.printDebug ("[${file.absolutePath}] exists.")
+            ModConfig.printDebug("[${file.absolutePath}] exists.")
             return false
         }
-        if (file.canRead().not()){
+        if (file.canRead().not()) {
             ModConfig.printDebug("[${file.absolutePath}] can't read.")
             return false
         }
@@ -46,7 +45,7 @@ object FileUtils {
      * @return 返回文件所有 **特定编码** 后的字符串，
      */
     @JvmStatic
-    fun fileToString(file: File, charset: Charset = Charsets.UTF_8): String {
+    fun readFile(file: File, charset: Charset = Charsets.UTF_8): String {
         fileChooseException(file)
         return StringUtils.readInputStream(FileInputStream(file), charset)
     }
@@ -57,16 +56,16 @@ object FileUtils {
      *
      * @param file 输出的位置
      * @param data 数据源
-     * @param coding 编码方式
+     * @param charset 编码方式
      * @return 是否成功
      */
     @JvmStatic
-    fun write(file: File, data: String,  charset: Charset = Charsets.UTF_8): Boolean {
-        if (fileChoose(file)){
+    fun writeFile(file: File, data: String, charset: Charset = Charsets.UTF_8): Boolean {
+        if (fileChoose(file)) {
             return false
         }
         var result: Boolean
-        val outputStream  = FileOutputStream(file)
+        val outputStream = FileOutputStream(file)
         val outputStreamWriter = OutputStreamWriter(outputStream, charset)
         try {
             outputStreamWriter.write(data)
@@ -74,13 +73,13 @@ object FileUtils {
             outputStream.flush()
             result = true
         } catch (e: Exception) {
-            ModConfig.printDebug("在传送时发生错误！\n"+ StringUtils.throwableFormat(e))
+            ModConfig.printDebug("在传送时发生错误！\n" + StringUtils.throwableFormat(e))
             result = false
         } finally {
             try {
                 outputStreamWriter.close()
             } catch (e: Exception) {
-                ModConfig.printDebug("在关闭时发生错误！\n"+ StringUtils.throwableFormat(e))
+                ModConfig.printDebug("在关闭时发生错误！\n" + StringUtils.throwableFormat(e))
             }
 
         }
@@ -112,7 +111,7 @@ object FileUtils {
                     true
                 }
             } catch (e: Exception) {
-                ModConfig.printDebug("在删除文件[${file.absolutePath}]时发生错误！\n"+ StringUtils.throwableFormat(e))
+                ModConfig.printDebug("在删除文件[${file.absolutePath}]时发生错误！\n" + StringUtils.throwableFormat(e))
                 false
             }
 
@@ -130,7 +129,7 @@ object FileUtils {
      */
     @JvmStatic
     fun lengthFormat(length: Long, i: Int = 2): String {
-        val maxByte = doubleArrayOf(1.0, 2.0.pow(10.0), 2.0.pow(20.0), 2.0.pow(30.0), pow(2.0, 40.0), 2.0.pow(50.0), pow(2.0, 60.0), pow(2.0, 70.0), 2.0.pow(80.0), 2.0.pow(90.0), 2.0.pow(100.0), pow(2.0, 110.0), 2.0.pow(120.0))
+        val maxByte = doubleArrayOf(1.0, 2.0.pow(10.0), 2.0.pow(20.0), 2.0.pow(30.0), 2.0.pow(40.0), 2.0.pow(50.0), 2.0.pow(60.0), 2.0.pow(70.0), 2.0.pow(80.0), 2.0.pow(90.0), 2.0.pow(100.0), 2.0.pow(110.0), 2.0.pow(120.0))
         val byteUnits = arrayOf("B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB", "BB", "NB", "DB", "CB")
         var unitPosition = 0
         for (position in maxByte.indices) {
@@ -142,7 +141,7 @@ object FileUtils {
         val decimal = 10.0.pow(i.toDouble())
         val postConversionData = (length / maxByte[unitPosition] * decimal).toLong()
         val endSize = postConversionData / decimal
-        return String.format("%.0${i}f",endSize) + byteUnits[unitPosition]
+        return String.format("%.0${i}f", endSize) + byteUnits[unitPosition]
     }
 
     /**
@@ -153,7 +152,7 @@ object FileUtils {
     fun sort(fileList: List<File>) {
         Collections.sort(fileList) { o1, o2 ->
             if (o1.isDirectory && o2.isFile) {
-                return@sort - 1
+                return@sort -1
             } else if (o1.isFile && o2.isDirectory) {
                 return@sort 1
             } else {
@@ -165,16 +164,16 @@ object FileUtils {
                 val char2 = name2.toCharArray()
                 val len = if (char1.size > char2.size) char2.size else char1.size
                 if (Character.isUpperCase(char1[0]) && !Character.isUpperCase(char2[0])) {
-                    return@sort - 1
+                    return@sort -1
                 } else if (!Character.isUpperCase(char1[0]) && Character.isUpperCase(char2[0])) {
                     return@sort 1
                 }
                 for (i in 0 until len) {
                     val c1 = getCharIndex(char1[i])
                     val c2 = getCharIndex(char2[i])
-                    return@sort c1 -c2
+                    return@sort c1 - c2
                 }
-                return@sort char1 . size -char2.size
+                return@sort char1.size - char2.size
             }
         }
     }
@@ -200,7 +199,6 @@ object FileUtils {
 
         return a * 100 + b
     }
-
 
 
 }
