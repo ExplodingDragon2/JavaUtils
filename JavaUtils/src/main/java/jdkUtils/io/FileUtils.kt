@@ -10,6 +10,8 @@ import kotlin.math.pow
 object FileUtils {
     val hexDigits = charArrayOf('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F')
 
+
+
     @Throws(IOException::class)
     private fun fileChooseException(file: File) {
         if (file.isFile.not()) {
@@ -114,7 +116,6 @@ object FileUtils {
                 ModConfig.printDebug("在删除文件[${file.absolutePath}]时发生错误！\n" + StringUtils.throwableFormat(e))
                 false
             }
-
         }
     }
 
