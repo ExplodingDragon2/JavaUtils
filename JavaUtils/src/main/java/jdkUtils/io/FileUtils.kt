@@ -150,6 +150,7 @@ object FileUtils {
      * 对File 的 List进行排序
      * @param fileList 原始数据
      */
+    @JvmStatic
     fun sort(fileList: List<File>) {
         Collections.sort(fileList) { o1, o2 ->
             if (o1.isDirectory && o2.isFile) {
@@ -185,14 +186,11 @@ object FileUtils {
      * @param c 字符
      * @return 顺序
      */
-    fun getCharIndex(c: Char): Int {
-        var bytes: ByteArray? = null
-        try {
-            bytes = StringBuffer().append(c).toString().toByteArray(charset("gbk"))
-        } catch (e: UnsupportedEncodingException) {
-        }
+    @JvmStatic
+    private fun getCharIndex(c: Char): Int {
+        val bytes = StringBuffer().append(c).toString().toByteArray(charset("gbk"))
 
-        if (bytes!!.size == 1) {
+        if (bytes.size == 1) {
             return bytes[0].toInt()
         }
         val a = bytes[0] - 0xA0 + 256

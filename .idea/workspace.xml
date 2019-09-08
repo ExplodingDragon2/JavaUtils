@@ -88,8 +88,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JavaUtils/src/main/java/jdkUtils/io/FileUtils.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+            <state relative-caret-position="133">
+              <caret line="153" column="27" selection-start-line="153" selection-start-column="27" selection-end-line="153" selection-end-column="27" />
               <folding>
                 <element signature="e#21#170#0" expanded="true" />
               </folding>
@@ -183,8 +183,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -290,6 +288,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -375,7 +375,8 @@
       <workItem from="1567738681665" duration="5940000" />
       <workItem from="1567826335098" duration="1821000" />
       <workItem from="1567858065661" duration="1430000" />
-      <workItem from="1567862485711" duration="875000" />
+      <workItem from="1567862485711" duration="1114000" />
+      <workItem from="1567920582606" duration="280000" />
     </task>
     <task id="LOCAL-00001" summary="临时存储.">
       <created>1567609918980</created>
@@ -405,7 +406,21 @@
       <option name="project" value="LOCAL" />
       <updated>1567827915792</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="临时存储.">
+      <created>1567870595253</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1567870595254</updated>
+    </task>
+    <task id="LOCAL-00006" summary="临时存储.">
+      <created>1567870749533</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1567870749533</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -441,13 +456,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16524000" />
+    <option name="totallyTimeSpent" value="17043000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="41" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26605996" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26927194" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -462,7 +477,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.3295711" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3295711" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3295711" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
@@ -627,8 +642,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JavaUtils/src/main/java/jdkUtils/io/FileUtils.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+        <state relative-caret-position="133">
+          <caret line="153" column="27" selection-start-line="153" selection-start-column="27" selection-end-line="153" selection-end-column="27" />
           <folding>
             <element signature="e#21#170#0" expanded="true" />
           </folding>
