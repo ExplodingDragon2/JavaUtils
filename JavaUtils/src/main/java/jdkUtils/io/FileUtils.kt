@@ -200,4 +200,42 @@ object FileUtils {
     }
 
 
+    /**
+     *  得到文件的哈希值
+     *
+     * @param file File
+     * @param method String
+     * @return String
+     */
+    @JvmStatic
+    fun fileHashHex(file: File, method: String): String {
+        fileChooseException(file)
+        val inputStream = file.inputStream()
+        try {
+            return IOUtils.calculatedHash(inputStream,method);
+        }catch (e:Exception){
+            ModConfig.printDebug("得到文件哈希值时发生异常！")
+            try {
+                inputStream.close()
+            }   catch (e:Exception){
+            }
+            throw e
+        }
+    }
+
+    /**
+     * # 计算文件MD5哈希值
+     * @param file File 需要计算的源文件
+     * @return String
+     */
+    fun fileMd5Hex(file: File) = fileHashHex(file,"MD5")
+
+    /**
+     * # 计算文件SHA1哈希值
+     * @param file File 需要计算的源文件
+     * @return String
+     */
+    fun fileSha1Hex(file: File) = fileHashHex(file,"SHA1")
+
+
 }
