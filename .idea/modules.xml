@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaUtils.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaUtils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dataBean/JavaUtils.DataBean.iml" filepath="$PROJECT_DIR$/.idea/modules/dataBean/JavaUtils.DataBean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DataBean/JavaUtils.DataBean.main.iml" filepath="$PROJECT_DIR$/.idea/modules/DataBean/JavaUtils.DataBean.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DataBean/JavaUtils.DataBean.test.iml" filepath="$PROJECT_DIR$/.idea/modules/DataBean/JavaUtils.DataBean.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaUtils/JavaUtils.JavaUtils.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaUtils/JavaUtils.JavaUtils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaUtils/JavaUtils.JavaUtils.main.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaUtils/JavaUtils.JavaUtils.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaUtils/JavaUtils.JavaUtils.test.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaUtils/JavaUtils.JavaUtils.test.iml" />
+    </modules>
+  </component>
+</project>

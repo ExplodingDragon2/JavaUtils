@@ -1,13 +1,15 @@
 package jdkUtils.io
 
-import jdkUtils.ModConfig
 import jdkUtils.data.StringUtils
+import jdkUtils.logcat.Logger
 import java.io.*
 import java.nio.charset.Charset
 import java.util.*
 import kotlin.math.pow
 
 object FileUtils {
+    private val logger = Logger.getLogger(this)
+
     val hexDigits = charArrayOf('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F')
 
 
@@ -25,11 +27,11 @@ object FileUtils {
     @Throws(IOException::class)
     private fun fileChoose(file: File): Boolean {
         if (file.isFile.not()) {
-            ModConfig.printDebug("[${file.absolutePath}] exists.")
+            logger.debug("[${file.absolutePath}] exists.")
             return false
         }
         if (file.canRead().not()) {
-            ModConfig.printDebug("[${file.absolutePath}] can't read.")
+            logger.debug("[${file.absolutePath}] can't read.")
             return false
         }
         return true
@@ -75,13 +77,13 @@ object FileUtils {
             outputStream.flush()
             result = true
         } catch (e: Exception) {
-            ModConfig.printDebug("在传送时发生错误！\n" + StringUtils.throwableFormat(e))
+            logger.debug("在传送时发生错误！\n" + StringUtils.throwableFormat(e))
             result = false
         } finally {
             try {
                 outputStreamWriter.close()
             } catch (e: Exception) {
-                ModConfig.printDebug("在关闭时发生错误！\n" + StringUtils.throwableFormat(e))
+                logger.debug("在关闭时发生错误！\n" + StringUtils.throwableFormat(e))
             }
 
         }
@@ -104,7 +106,7 @@ object FileUtils {
                 if (!file.delete()) {
                     for (childrenFile in file.listFiles()!!) {
                         if (!delete(childrenFile)) {
-                            ModConfig.printDebug("删除文件[${childrenFile.absolutePath}] 失败了 .")
+                            logger.debug("删除文件[${childrenFile.absolutePath}] 失败了 .")
                             return false
                         }
                     }
@@ -113,7 +115,7 @@ object FileUtils {
                     true
                 }
             } catch (e: Exception) {
-                ModConfig.printDebug("在删除文件[${file.absolutePath}]时发生错误！\n" + StringUtils.throwableFormat(e))
+                logger.debug("在删除文件[${file.absolutePath}]时发生错误！\n" + StringUtils.throwableFormat(e))
                 false
             }
         }
@@ -151,7 +153,7 @@ object FileUtils {
      * @param fileList 原始数据
      */
     @JvmStatic
-    fun sort(fileList: List<File>) {
+    fun fileSort(fileList: List<File>) {
         Collections.sort(fileList) { o1, o2 ->
             if (o1.isDirectory && o2.isFile) {
                 return@sort -1
@@ -210,23 +212,13 @@ object FileUtils {
     @JvmStatic
     fun fileHashHex(file: File, method: String): String {
         fileChooseException(file)
-        val inputStream = file.inputStream()
-        try {
-            return IOUtils.calculatedHash(inputStream,method);
-        }catch (e:Exception){
-            ModConfig.printDebug("得到文件哈希值时发生异常！")
-            try {
-                inputStream.close()
-            }   catch (e:Exception){
-            }
-            throw e
-        }
+        return IOUtils.calculatedHash(file.inputStream(),method)
     }
 
     /**
      * # 计算文件MD5哈希值
      * @param file File 需要计算的源文件
-     * @return String
+     * @return String 校验值
      */
     @JvmStatic
     fun fileMd5Hex(file: File) = fileHashHex(file,"MD5")
@@ -234,10 +226,17 @@ object FileUtils {
     /**
      * # 计算文件SHA1哈希值
      * @param file File 需要计算的源文件
-     * @return String
+     * @return String 校验值
      */
     @JvmStatic
     fun fileSha1Hex(file: File) = fileHashHex(file,"SHA1")
 
+    /**
+     * # 计算文件CRC32 校验值
+     * @param file File 需要计算的源文件
+     * @return String 校验值
+     */
+    @JvmStatic
+    fun fileCrc32Hex(file: File) = IOUtils.calculatedCrc32(file.inputStream());
 
 }

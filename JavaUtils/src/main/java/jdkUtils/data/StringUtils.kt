@@ -5,7 +5,6 @@ import java.io.ByteArrayOutputStream
 import java.io.InputStream
 import java.io.OutputStreamWriter
 import java.io.PrintWriter
-import java.lang.IndexOutOfBoundsException
 import java.nio.charset.Charset
 
 
@@ -64,10 +63,14 @@ object StringUtils {
     @JvmStatic
     fun stringSha1(str: String) = stringHashHex(str, "sha1")
 
-    fun byteArrayToHex(b: ByteArray, offset: Int = 0, len: Int = b.size): String {
-        if (b.size < offset + len){
-            throw IndexOutOfBoundsException("b.size < offset + len")
-        }
-        val str = StringBuilder(len/2)
-    }
+    /**
+     *  #得到字符串的CRC32校验值
+     *
+     * @param str String 源字符串
+     * @param method String 计算的哈希值类型
+     * @return CRC32校验值
+     */
+    @JvmStatic
+    fun stringCrc32Hex(str: String) = IOUtils.calculatedCrc32(str.byteInputStream(Charsets.UTF_8))
+
 }
