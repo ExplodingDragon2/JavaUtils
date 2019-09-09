@@ -203,9 +203,9 @@ object FileUtils {
     /**
      *  得到文件的哈希值
      *
-     * @param file File
-     * @param method String
-     * @return String
+     * @param file File 源文件位置
+     * @param method String 计算的哈希值类型
+     * @return String 哈希值
      */
     @JvmStatic
     fun fileHashHex(file: File, method: String): String {
@@ -228,6 +228,7 @@ object FileUtils {
      * @param file File 需要计算的源文件
      * @return String
      */
+    @JvmStatic
     fun fileMd5Hex(file: File) = fileHashHex(file,"MD5")
 
     /**
@@ -235,6 +236,7 @@ object FileUtils {
      * @param file File 需要计算的源文件
      * @return String
      */
+    @JvmStatic
     fun fileSha1Hex(file: File) = fileHashHex(file,"SHA1")
 
 

@@ -1,9 +1,11 @@
 package jdkUtils.data
 
+import jdkUtils.io.IOUtils
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
 import java.io.OutputStreamWriter
 import java.io.PrintWriter
+import java.lang.IndexOutOfBoundsException
 import java.nio.charset.Charset
 
 
@@ -19,23 +21,24 @@ object StringUtils {
      * @return String 转换的字符串
      */
     @JvmStatic
-    fun readInputStream(inputStream: InputStream,charset: Charset = Charsets.UTF_8): String {
+    fun readInputStream(inputStream: InputStream, charset: Charset = Charsets.UTF_8): String {
         val stringBuilder = StringBuilder()
         try {
             val bytes = inputStream.readBytes()
             stringBuilder.append(bytes.toString(charset))
-        }catch (e:Exception){
+        } catch (e: Exception) {
 
-        }finally {
+        } finally {
             inputStream.close()
         }
         return stringBuilder.toString()
     }
 
+
     @JvmStatic
-    fun throwableFormat(throws:Throwable):String{
+    fun throwableFormat(throws: Throwable): String {
         val outputStream = ByteArrayOutputStream()
-        val printWriter = PrintWriter(OutputStreamWriter(outputStream,Charsets.UTF_8),true)
+        val printWriter = PrintWriter(OutputStreamWriter(outputStream, Charsets.UTF_8), true)
         throws.printStackTrace(printWriter)
         printWriter.flush()
         val array = outputStream.toByteArray()
@@ -44,5 +47,27 @@ object StringUtils {
         return array.toString(Charsets.UTF_8).trim()
     }
 
+    /**
+     *  #得到字符串的哈希值
+     *
+     * @param str String 源字符串
+     * @param method String 计算的哈希值类型
+     * @return String 哈希值
+     */
+    @JvmStatic
+    fun stringHashHex(str: String, method: String) = IOUtils.calculatedHash(str.byteInputStream(Charsets.UTF_8), method)
 
+
+    @JvmStatic
+    fun stringMd5(str: String) = stringHashHex(str, "md5")
+
+    @JvmStatic
+    fun stringSha1(str: String) = stringHashHex(str, "sha1")
+
+    fun byteArrayToHex(b: ByteArray, offset: Int = 0, len: Int = b.size): String {
+        if (b.size < offset + len){
+            throw IndexOutOfBoundsException("b.size < offset + len")
+        }
+        val str = StringBuilder(len/2)
+    }
 }
