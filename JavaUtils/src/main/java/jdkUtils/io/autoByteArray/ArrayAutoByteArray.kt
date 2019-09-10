@@ -11,7 +11,7 @@ import java.io.InputStream
  * @version 1.0
  */
 
-class ArrayAutoByteArray(private val byteArray: ByteArray) : AutoByteArray {
+class ArrayAutoByteArray(private val byteArray: ByteArray) : AutoByteArray() {
     override val size: Long
         get() = byteArray.size.toLong()
 

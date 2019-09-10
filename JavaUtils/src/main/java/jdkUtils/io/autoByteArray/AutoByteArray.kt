@@ -49,7 +49,7 @@ abstract class AutoByteArray : Closeable {
      * @param charset Charset 编码
      * @return String 计算的字符串
      */
-    fun toString(offset: Long = 0, length: Int = size.toInt(), charset: Charset = Charsets.UTF_8): String {
+    open fun toString(offset: Long = 0, length: Int = size.toInt(), charset: Charset = Charsets.UTF_8): String {
         return String(toByteArray(offset, length), charset)
     }
 

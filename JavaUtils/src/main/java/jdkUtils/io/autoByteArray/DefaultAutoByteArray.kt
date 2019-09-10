@@ -8,7 +8,7 @@ import java.nio.charset.Charset
  * @author ExplodingDragon
  * @version 1.0
  */
-class DefaultAutoByteArray : AutoByteArray {
+class DefaultAutoByteArray : AutoByteArray() {
     override val size: Long
         get() = 0
 
@@ -24,6 +24,7 @@ class DefaultAutoByteArray : AutoByteArray {
     override fun close() {
 
     }
+
 
     override fun toString(offset: Long, length: Int, charset: Charset): String {
         throw RuntimeException("Stub !")

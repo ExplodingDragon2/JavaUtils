@@ -98,7 +98,7 @@ class AutoByteArraySearch(private val autoByteArray: AutoByteArray) {
         if (l == -1L) {
             return null
         }
-        return autoByteArray.toByteArray(startIndex, l).toString(charset)
+        return autoByteArray.toByteArray(startIndex, (l - startIndex + 1).toInt()).toString(charset)
     }
 
     fun readLineEndIndex(index: Long = 0): Long {

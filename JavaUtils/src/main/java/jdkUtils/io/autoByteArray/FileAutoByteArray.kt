@@ -8,7 +8,7 @@ import java.util.*
  * @author ExplodingDragon
  * @version 1.0
  */
-class FileAutoByteArray(val tempFile: File) : AutoByteArray {
+class FileAutoByteArray(val tempFile: File) : AutoByteArray() {
     private val logger  = Logger.getLogger(this)
     var isClosed = false
         private set
