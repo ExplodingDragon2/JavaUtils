@@ -28,6 +28,7 @@ class ArrayAutoByteArray(private val byteArray: ByteArray) : AutoByteArray() {
     }
 
     override fun close() {
+
     }
 
 }
