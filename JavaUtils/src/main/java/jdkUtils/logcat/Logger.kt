@@ -49,7 +49,6 @@ class Logger private constructor(private val kClass: KClass<*>) : Log() {
 
     companion object {
 
-
         @JvmStatic
         fun getLogger(clazz: Class<*>): Logger {
             return Logger(clazz.kotlin)
