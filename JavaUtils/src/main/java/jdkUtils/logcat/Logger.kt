@@ -48,9 +48,7 @@ class Logger private constructor(private val kClass: KClass<*>) : Log() {
     get() = ModConfig.logFactory.isDebug
 
     companion object {
-        init {
-            printLogo("/res/Logo.txt")
-        }
+
 
         @JvmStatic
         fun getLogger(clazz: Class<*>): Logger {
