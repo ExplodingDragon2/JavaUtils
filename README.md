@@ -7,6 +7,7 @@
 前排提示：没有任何价值或意义的项目 ...
 
 
+[![](https://jitpack.io/v/ExplodingDragon/JavaUtils.svg)](https://jitpack.io/#ExplodingDragon/JavaUtils)
 
 
 
