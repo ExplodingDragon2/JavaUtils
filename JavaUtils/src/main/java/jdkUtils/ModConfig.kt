@@ -16,7 +16,7 @@ object ModConfig{
      */
     @Volatile
     @JvmStatic
-    var logFactory =  DefaultLog()
+    var logFactory:LogFactory =  DefaultLog()
 
     /**
      * 开启 Debug模式，会输出大量的运行关键信息
@@ -25,8 +25,12 @@ object ModConfig{
     @JvmStatic
     var debug = false
 
-
-
+    /**
+     * 是否为调试模式
+     */
+    @JvmStatic
+    val isDebug: Boolean
+        get() = debug
 
 
     class DefaultLog : LogFactory {
