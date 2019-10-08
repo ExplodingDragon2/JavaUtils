@@ -9,7 +9,7 @@
 
 [![](https://jitpack.io/v/ExplodingDragon/JavaUtils.svg)](https://jitpack.io/#ExplodingDragon/JavaUtils)
 
-
+ 
 
 
 
