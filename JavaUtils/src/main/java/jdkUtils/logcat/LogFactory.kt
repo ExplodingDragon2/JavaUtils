@@ -8,5 +8,5 @@ import kotlin.reflect.KClass
  */
 interface LogFactory {
     fun outputLog(millisecond: Long,level:Int,clazz: KClass<*>,message: String, exception: Throwable?)
-    val isDebug:Boolean
+    var isDebug:Boolean
 }

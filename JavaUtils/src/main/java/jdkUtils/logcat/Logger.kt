@@ -23,7 +23,7 @@ class Logger private constructor(private val kClass: KClass<*>) : Log() {
     }
 
     override fun debug(message: String, exception: Throwable?) {
-        if (debug) {
+        if (ModConfig.debug) {
             logCallback(LOGGER_DEBUG,message,exception)
         }
     }
@@ -45,7 +45,7 @@ class Logger private constructor(private val kClass: KClass<*>) : Log() {
      * # 判断是否为DEBUG 模式
      */
     val debug:Boolean
-    get() = ModConfig.logFactory.isDebug
+    get() = ModConfig.debug
 
     companion object {
 
@@ -62,7 +62,7 @@ class Logger private constructor(private val kClass: KClass<*>) : Log() {
         fun printLogo(path: String) {
             try {
                 val logo = StringUtils.readInputStream(Logger::class.java.getResourceAsStream(path))
-                System.err.println("\n$logo\n")
+                System.err.println(" \n$logo\n ")
             } catch (e: Exception) {
                 System.err.println("Logo 打印失败！")
             }

@@ -6,6 +6,10 @@
       <module name="JavaUtils.DataBean.test" target="1.8" />
       <module name="JavaUtils.JavaUtils.main" target="1.8" />
       <module name="JavaUtils.JavaUtils.test" target="1.8" />
+      <module name="top.fksoft.JavaUtils.DataBean.main" target="1.8" />
+      <module name="top.fksoft.JavaUtils.DataBean.test" target="1.8" />
+      <module name="top.fksoft.JavaUtils.JavaUtils.main" target="1.8" />
+      <module name="top.fksoft.JavaUtils.JavaUtils.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
