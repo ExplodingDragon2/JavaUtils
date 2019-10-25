@@ -5,6 +5,7 @@ import java.io.IOException
 import java.io.OutputStreamWriter
 import java.io.PrintWriter
 
+//@Deprecated("可以使用新的Logcat方案")
 abstract class Log {
 
 
