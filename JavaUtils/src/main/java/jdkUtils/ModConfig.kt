@@ -23,5 +23,4 @@ object ModConfig{
         get() = logFactory.isDebug
 
 
-
 }
