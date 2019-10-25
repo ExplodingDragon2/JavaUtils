@@ -9,6 +9,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaUtils/JavaUtils.JavaUtils.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaUtils/JavaUtils.JavaUtils.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaUtils/JavaUtils.JavaUtils.main.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaUtils/JavaUtils.JavaUtils.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaUtils/JavaUtils.JavaUtils.test.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaUtils/JavaUtils.JavaUtils.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DataBean/top.fksoft.JavaUtils.DataBean.main.iml" filepath="$PROJECT_DIR$/.idea/modules/DataBean/top.fksoft.JavaUtils.DataBean.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DataBean/top.fksoft.JavaUtils.DataBean.test.iml" filepath="$PROJECT_DIR$/.idea/modules/DataBean/top.fksoft.JavaUtils.DataBean.test.iml" />
     </modules>
   </component>
 </project>

@@ -24,7 +24,4 @@ object ModConfig{
 
 
 
-
-
-
 }
